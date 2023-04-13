@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+
 html,
 body,
 div,
@@ -121,4 +123,153 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+/* VARIABLES */
+:root {
+  --light-cyan: hsl(193, 38%, 86%);
+  --neon-green: hsl(150, 100%, 66%);
+  --grayish-blue: hsl(217, 19%, 38%);
+  --dark-grayish-blue: hsl(217, 19%, 24%);
+  --dark-blue: hsl(218, 23%, 16%);
+}
+
+/* FONT FAMILY */
+html {
+  font-family: "Manrope", sans-serif;
+}
+body {
+  background-color: var(--dark-blue);
+}
+.button {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  border: none;
+  background-color: var(--neon-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.button:hover {
+  box-shadow: 0 0 25px -5px var(--neon-green);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.button > img {
+  width: 30px;
+}
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  background-color: var(--dark-grayish-blue);
+  padding: 50px;
+  padding-bottom: 75px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  min-width: 500px;
+  min-height: 100px;
+}
+.adviceNumber {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: var(--neon-green);
+}
+.quote {
+  max-width: 30ch;
+  color: var(--light-cyan);
+  font-size: 26px;
+  line-height: 1.5;
+  margin: 35px 0;
+}
+.divider > img {
+  width: 100%;
+}
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  animation: rotate 1s infinite;
+  height: 50px;
+  width: 50px;
+}
+
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+.loader:before {
+  animation: ball1 1s infinite;
+  background-color: #fff;
+  box-shadow: 30px 0 0 var(--neon-green);
+  margin-bottom: 10px;
+}
+.loader:after {
+  animation: ball2 1s infinite;
+  background-color: var(--neon-green);
+  box-shadow: 30px 0 0 #fff;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+  }
+  50% {
+    transform: rotate(360deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(720deg) scale(0.8);
+  }
+}
+
+@keyframes ball1 {
+  0% {
+    box-shadow: 30px 0 0 var(--neon-green);
+  }
+  50% {
+    box-shadow: 0 0 0 var(--neon-green);
+    margin-bottom: 0;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 var(--neon-green);
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 #fff;
+    margin-top: -20px;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #fff;
+    margin-top: 0;
+  }
 }
